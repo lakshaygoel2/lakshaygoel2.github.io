@@ -1,150 +1,257 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		
+  <head>
+    <meta charset="utf-8">
+    <title>Bootstrap</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/bootstrap-3-7.min.css">
+	<link rel= "javascript" href="../js/main.js">
+	<link rel="stylesheet" href="bootstrapstyle.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Welcome LAKSHAY!</a>
+      </div>
 
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+		  <li  onclick="javascript:addTopic()" id="Add" class="active" ><a href="#">Add+</a></li>
+          <li id="electronics" onclick="clickedli(this)" class="dropdown">
+		  <a class="dropdown-toggle" data-toggle="dropdown" href="#" onclick="displayitem('0')">Electronics<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="#">Laptop</a></li>
+						<li><a href="#">Mobile</a></li>
+						<li><a href="#">Tablet</a></li>
+						<li><a href="#">Accessories</a></li>
+						<li><a href="#">Camera</a></li>
+					</ul></li>
+          <li id="fashion"  onclick="clickedli(this)" class="dropdown">
+		  <a class="dropdown-toggle" data-toggle="dropdown" href="#" onclick="displayitem('1')">Fashion<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="#">Shirt</a></li>
+						<li><a href="#">Jeans</a></li>
+						<li><a href="#">Trousers</a></li>
+						<li><a href="#">Shrugs</a></li>
+						<li><a href="#">Shoes</a></li>
+					</ul></li>
+          <li id="books"  onclick="clickedli(this)"class="dropdown">
+		  <a class="dropdown-toggle" data-toggle="dropdown" href="#" onclick="displayitem('2')">Books<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="#">Sherlock Holmes</a></li>
+						<li><a href="#">War and Peace</a></li>
+						<li><a href="#">Beauty and Beast</a></li>
+						<li><a href="#">The Adventures</a></li>
+						<li><a href="#">Kids</a></li>
+					</ul></li>
+          <li id="sports"  onclick="clickedli(this)"class="dropdown">
+		  <a class="dropdown-toggle" data-toggle="dropdown" href="#" onclick="displayitem('3')">Sports<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="#">Cricket</a></li>
+						<li><a href="#">Football</a></li>
+						<li><a href="#">Snooker</a></li>
+						<li><a href="#">Badminton</a></li>
+						<li><a href="#">Tennis</a></li>
+					</ul></li>
+          <li id="personal"  onclick="clickedli(this)" class="dropdown">
+		  <a class="dropdown-toggle" data-toggle="dropdown" href="#" onclick="displayitem('4')">Personal<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="#">Peronal 1</a></li>
+						<li><a href="#">Peronal 2</a></li>
+						<li><a href="#">Peronal 3</a></li>
+						<li><a href="#">Peronal 4</a></li>
+						<li><a href="#">Peronal 5</a></li>
+					</ul></li>
+					
+        <span><li><button style= "float:right; background-color: #03C38C" class="btn btn-danger navbar-btn" onclick="displaycart()">Items in cart<img src="cart.png" style = "width:25px ;height:20px;"></button></li></span>
+		</ul>
+		<!--<ul class="nav navbar-nav navbar-right" id="right-list">-->
 		
-		<style>
-			table{
-				width:85%;
-			}
-			.container-fluid{
-				width:85%;
-			}
-			tr{
-				padding:5px;
-			}
-			td{
-				padding:5px;
-				font-size: 15px;
 				
-			}	
-			th{
-				font-size:25px;
-				font-family:Times New Roman;
-			}
-			body{
-				background-color:lightgray;
-			}
-			td{
-				border-bottom: 1px solid black;
-				border-right:1px solid black;
-			}
+				<!--<li><i class="glyphicon glyphicon-shopping-cart" style="font-size:35px;color:white;margin-top:5px;" onclick="displaycart()"></i></li>-->
 			
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+  <div class="sink">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner">
+
+        <div class="item active">
+          <div class="carousel-caption">
+            <img class="img-responsive" src="books.jpg" onclick="displayitem('2')" >
+            <h3>Find the latest collections of books here</h3>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="carousel-caption">
+            <img class="img-responsive" src="fashion.jpg" onclick="displayitem('1')">
+            <h3>Go modern with fashion</h3>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="carousel-caption">
+            <img class="img-responsive" src="electronics.jpg" onclick="displayitem('0')">
+            <h3>Change your home with new comings this Diwali</h3>
+          </div>
+        </div>
 		
-		</style>
+		<div class="item">
+          <div class="carousel-caption">
+            <img class="img-responsive" src="sports.png" onclick="displayitem('3')">
+            <h3>Go sporty</h3>
+          </div>
+        </div>
+		
+      </div>
+
+      <!-- Left and right controls -->
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+        <!-- <span class="glyphicon glyphicon-chevron-left"></span> -->
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next">
+        <!-- <span class="glyphicon glyphicon-chevron-right"></span> -->
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div>
+<!-- CHANGE -->
+<!--
+<div class="container-fliud text-center" id="wrapper">
+		<header class="text-center"><h1>Categories</h1></header>
+		<div class="row" id="categoryrow">
+			<div class="col-md-4 col-lg-4 col-xs-5 col-sm-5 category" id="clonenode">
+				<div class="categoryimg">
+					<img src="food.png" class="img-responsive" onclick="displayitem('0')">
+				</div>
+			</div>
+			<div class="col-md-4 col-lg-4 col-xs-5 col-sm-5 category">
+				<div class="categoryimg">
+					<img src="electronics.jpg" class="img-responsive" onclick="displayitem('1')">
+				</div>
+			</div>
+			<div class="col-md-4 col-lg-4 col-xs-5 col-sm-5 category">
+				<div class="categoryimg">
+					<img src="sports.jpg" class="img-responsive" onclick="displayitem('2')">
+				</div>
+			</div>
 			
-	</head>
-	<body>
-		<div>
-			<h1 style="color:black; background-color: #6666C1; text-align:center">CSS Properties</h1>      
-			<p style="color:black; text-align:center;  background-color: #C1C1E6">-Lakshay Goel</p>
+			
+			<div class="col-md-4 col-lg-4 col-xs-5 col-sm-5 category">
+				<div class="categoryimg">
+					<img src="accessories.jpg" class="img-responsive" onclick="displayitem('3')">
+				</div>
+			</div>
+			<div class="col-md-4 col-lg-4 col-xs-5 col-sm-5 category">
+				<div class="categoryimg">
+					<img src="clothes.jpg" class="img-responsive" onclick="displayitem('4')">
+				</div>
+			</div>
+			-->
 		</div>
-		
-	
-	<div>
-		
-		
-		<table>
-			<thead>
-					<tr class="text-center">
-						<th class="text-center" style="border-bottom:1px solid black  ;background-color: #6666C1">Properties and Attributes</th>
-						<th class="text-center" style="border-bottom:1px solid black;  background-color: #6666C1">Description</th>
-					</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>Width (px / %)</td>
-					<td>Defines width of element</td>
+		<div class="row" id="itemsrow">
+			<h2 style="color:#FFAA00;font-family:Georgia;font-size:30px" class="text-center">Category-wise Products</h2>
+			<div class="col-md-2 col-sm-3 col-xs-4 col-lg-2">
+				<div class="product-margin">	
+					<div class="bord product">
+						<img src="" class="img-responsive itemimg">
+					</div>
+					<h4 class="productname">Product Name</h4><br><br><br><br><br><br>
+					<div class="btn-group">
+						<button style= "float:right; background-color: #03C38C" class="btn btn-danger cartbtn">ADD TO CART</button>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-2 col-sm-3 col-xs-4 col-lg-2">
+				<div class="product-margin">	
+					<div class="bord product">
+						<img src="" class="img-responsive itemimg">
+					</div>
+					<h4 class="productname">Product Name</h4><br><br><br><br><br><br>
 					
-				</tr>
-				<tr>
-					<td>Height (px / %)</td>
-					<td>Defines height of an element</td>
+					<div class="btn-group">
+						<button style= "float:right; background-color: #03C38C" class="btn btn-danger cartbtn">ADD TO CART</button>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-2 col-sm-3 col-xs-4 col-lg-2">
+				<div class="product-margin">	
+					<div class="bord product">
+						<img src="" class="img-responsive itemimg">
+					</div>
+					<h4 class="productname">Product Name</h4><br><br><br><br><br><br>
 					
-				</tr>
-				<tr>
-					<td>backgound (url (' '))</td>
-					<td>Css properties group to manipulate collective background properties</td>
+					<div class="btn-group">
+						<button style= "float:right; background-color: #03C38C" class="btn btn-danger cartbtn">ADD TO CART</button>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-2 col-sm-3 col-xs-4 col-lg-2">
+				<div class="product-margin">	
+					<div class="bord product">
+						<img src="" class="img-responsive itemimg">
+					</div>
+					<h4 class="productname">Product Name</h4><br><br><br><br><br><br>
 					
-				</tr>
-				<tr>
-					<td>padding (px / %)</td>
-					<td>Defines space between element's border and element's objects inside it</td>
+					<div class="btn-group">
+					<button style= "float:right; background-color: #03C38C" class="btn btn-danger cartbtn">ADD TO CART</button>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-2 col-sm-3 col-xs-4 col-lg-2">
+				<div class="product-margin">	
+					<div class="bord product">
+						<img src="" class="img-responsive itemimg">
+					</div>
+					<h4 class="productname">Product Name</h4><br><br><br><br><br><br>
 					
-				</tr>
-				<tr>
-					<td>margin (url (' '))</td>
-					<td>Defines position of an element relative to its parent </td>
-					
-				</tr>
-				<tr>
-					<td>border (px / em)</td>
-					<td>Used to give border to an element</td>
-					
-				</tr>
-				<tr>
-					<td>border-color (colorname/ #hexadecimal)</td>
-					<td>Used to manipulate color of border of an element</td>
-					
-				</tr>
-				<tr>
-					<td>font-family (FontName eg. TNR)</td>
-					<td>Used to manipulate font of text</td>
-					
-				</tr>
-				<tr>
-					<td>font-size (px / em)</td>
-					<td>Used to manipulate size of text</td>
-					
-				</tr>
-				<tr>
-					<td>box-shadow (px / em / %)</td>
-					<td>Used to give shadow to a div </td>
-					
-				</tr>
-				<tr>
-					<td>border-image (url ('path_to_image'))</td>
-					<td>used to set image as border</td>
-					
-				</tr>
-				<tr>
-					<td>display (none,inline,block,table,inline-block)</td>
-					<td>Used to manipulate display of an element</td>
-					
-				</tr>
-				<tr>
-					<td>clip-path (clip-path function eg. polygon())</td>
-					<td>Used to manipulate shape of a div/section</td>
-					
-				</tr>
-				<tr>
-					<td>border-radius (px / %)</td>
-					<td>Used to manipulate border edges of a div</td>
-					
-				</tr>
-				<tr>
-					<td>nth-child() (positive integer)</td>
-					<td>Used to select specific child inside parent element</td>
-					
-				</tr>
-				<tr>
-					<td>float (left,right,none)</td>
-					<td>Used to position the div relative to parent</td>
-					
-				</tr>
-				<tr>
-					<td>clear (left,right,both,none)</td>
-					<td>Used to specify where not to position div relative to parent</td>
-					
-				</tr>
-				<tr>
-					<td>cursor (pointer,hourclass,hand,help etc.)</td>
-					<td>Used to specify shape of mouse-cursor specific to an element</td>
-					
-				</tr>
-			</tbody>
-		</table>
-	</div>
-	</body>
+					<div class="btn-group">
+						<button style= "float:right; background-color: #03C38C" class="btn btn-danger cartbtn">ADD TO CART</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- <div class="col-xs-4 col-md-4 col-lg-4 col-sm-4" id="cart" style="display:none"> -->
+		<div id="cart" style="display:none">
+			<span style="color:#03C38C;font-family:Georgia;font-size:20px">Items in Cart:</span>
+						
+			<div id="itemscart">
+			
+			</div>
+<!--			<h4> Total BILL: Rs 4350 </h4> -->
+			<span style = "float:down"><button style= "float:right ; background-color: #03C38C" class="btn btn-danger navbar-btn">PROCEED TO PAYMENT</button></span>
+		</div>
+<!--CHNAGE END -->		
+  <hr style="padding:0; margin-left:30%; width:40%; opacity:0; margin-bottom:5px; margin-top:5px; overflow:hidden;">
+  <div id="electronics" class="showb visi">
+  </div>
+  <div id="fashion" class="showb invisi">
+  </div>
+  <div id="books" class="showb invisi">
+  </div>
+  <div id="sports" class="showb invisi">
+  </div>
+  <div id="personal" class="showb invisi">
+  </div>
+  <hr style="padding:0; margin-left:30%; width:40%; opacity:0; margin-bottom:5px; margin-top:5px;">
+  <script	type="text/javascript" src="category.js"></script>
+  </body>
+  <footer>
+   <script src="../js/jquery-3-2-1.min.js" charset="utf-8"></script>
+    <script src="../js/bootstrap-3-7.min.js"></script> 
+    <script src="../js/main.js"></script>
+  </footer>
 </html>
